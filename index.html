@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinWise - Financial Literacy & Investment Guidance</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.chatbotbox.com/chatbox-api.js" defer></script>
+</head>
+<body>
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1><span class="primary-color">Fin</span>Wise</h1>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#help" class="nav-link">Help Center</a></li>
+                    <li id="login-btn" class="auth-btn"><a href="#login">Login</a></li>
+                    <li id="register-btn" class="auth-btn"><a href="#register">Register</a></li>
+                    <li id="profile-section" class="hidden">
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <i class="fas fa-user-circle"></i>
+                                <span id="user-name">User</span>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#dashboard-link" id="dashboard-link">Dashboard</a>
+                                <a href="#my-profile">My Profile</a>
+                                <a href="#" id="logout-btn">Sign Out</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- This section will be dynamically populated based on the current view -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1>Take Control of Your Financial Future</h1>
+                        <p>Connect with verified financial experts, access quality educational content, and make informed investment decisions.</p>
+                        <div class="hero-buttons">
+                            <button id="get-started-btn" class="btn btn-primary">Get Started</button>
+                            <button id="learn-more-btn" class="btn btn-secondary">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1444653389962-8149286c578a" alt="Financial advising">
+                    </div>
+                </div>
+
+                <div class="features">
+                    <h2>Why Choose FinWise?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Expert Education</h3>
+                            <p>Quality content from verified financial experts on budgeting, savings, investing, and more.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-user-check"></i>
+                            <h3>Verified Experts</h3>
+                            <p>Connect with thoroughly vetted financial professionals with proven experience.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-comments"></i>
+                            <h3>Personal Guidance</h3>
+                            <p>Schedule one-on-one sessions with financial experts tailored to your needs.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-robot"></i>
+                            <h3>24/7 Assistance</h3>
+                            <p>Get instant answers to common financial questions with our AI chatbot.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topics">
+                    <h2>Popular Financial Topics</h2>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Budgeting">
+                            <h3>Budgeting Basics</h3>
+                            <p>Learn effective budgeting strategies to take control of your finances.</p>
+                        </div>
+                        <div class="topic-card">
+                            <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6" alt="Investing">
+                            <h3>Investment Strategies</h3>
+                            <p>Discover different investment options and how to build a diversified portfolio.</p>
+                        </div>
+                        <div class="topic-card">
+                            <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4" alt="Financial Planning">
+                            <h3>Retirement Planning</h3>
+                            <p>Prepare for your future with smart retirement planning strategies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experts-preview">
+                    <h2>Our Top Financial Experts</h2>
+                    <div class="experts-grid" id="home-experts-grid">
+                        <!-- Experts will be dynamically loaded here -->
+                    </div>
+                </div>
+                
+                <div class="articles-preview">
+                    <h2>Latest Financial Articles</h2>
+                    <div class="articles-grid" id="home-articles-grid">
+                        <!-- Articles will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login" class="section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Financial planning">
+                    </div>
+                    <div class="auth-form">
+                        <h2>Login to Your Account</h2>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="login-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="login-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Account Type</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="login-user" name="login-account-type" value="user" checked>
+                                    <label for="login-user">User</label>
+                                    <input type="radio" id="login-expert" name="login-account-type" value="expert">
+                                    <label for="login-expert">Expert</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                        <p>Don't have an account? <a href="#register" class="link-auth">Register here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="register" class="section">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-form">
+                        <h2>Create New Account</h2>
+                        <form id="register-form">
+                            <div class="form-group">
+                                <label for="fullname">Full Name</label>
+                                <input type="text" id="register-fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="register-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="register-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" id="register-confirm-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Account Type</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="register-user" name="register-account-type" value="user" checked>
+                                    <label for="register-user">User</label>
+                                    <input type="radio" id="register-expert" name="register-account-type" value="expert">
+                                    <label for="register-expert">Expert</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                        <p>Already have an account? <a href="#login" class="link-auth">Login here</a></p>
+                    </div>
+                    <div class="auth-image">
+                        <img src="https://images.unsplash.com/photo-1563986768711-b3bde3dc821e" alt="Financial planning">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="user-dashboard" class="section">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Welcome, <span id="user-dashboard-name">User</span>!</h2>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-sidebar">
+                        <ul class="dashboard-menu">
+                            <li class="menu-item active" data-target="articles">
+                                <i class="fas fa-newspaper"></i> Articles
+                            </li>
+                            <li class="menu-item" data-target="experts">
+                                <i class="fas fa-user-tie"></i> Explore Experts
+                            </li>
+                            <li class="menu-item" data-target="schedule-meeting">
+                                <i class="fas fa-calendar-alt"></i> Schedule Meeting
+                            </li>
+                            <li class="menu-item" data-target="my-meetings">
+                                <i class="fas fa-handshake"></i> My Meetings
+                            </li>
+                            <li class="menu-item" data-target="messages">
+                                <i class="fas fa-envelope"></i> Messages
+                            </li>
+                            <li class="menu-item" data-target="become-expert">
+                                <i class="fas fa-star"></i> Become an Expert
+                            </li>
+                            <li class="menu-item" data-target="my-profile">
+                                <i class="fas fa-user-circle"></i> My Profile
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dashboard-main">
+                        <div id="user-articles" class="dashboard-panel active">
+                            <h3>Latest Financial Articles</h3>
+                            <div class="articles-grid" id="articles-container">
+                                <!-- Articles will be loaded dynamically -->
+                                <div class="article-card">
+                                    <div class="article-image">
+                                        <img src="https://images.unsplash.com/photo-1631856952982-7db18c2bdca4" alt="Budgeting Article">
+                                    </div>
+                                    <div class="article-content">
+                                        <h4>5 Budgeting Strategies for Beginners</h4>
+                                        <p class="article-meta">By Sarah Johnson | June 15, 2023</p>
+                                        <p class="article-excerpt">Learn how to create and stick to a budget that works for your financial goals and lifestyle.</p>
+                                        <a href="#" class="btn btn-small">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="article-card">
+                                    <div class="article-image">
+                                        <img src="https://images.unsplash.com/photo-1649954174454-767fd0a40fb6" alt="Investment Article">
+                                    </div>
+                                    <div class="article-content">
+                                        <h4>Understanding Investment Risks</h4>
+                                        <p class="article-meta">By Michael Chen | July 2, 2023</p>
+                                        <p class="article-excerpt">Discover different types of investment risks and strategies to mitigate them.</p>
+                                        <a href="#" class="btn btn-small">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="article-card">
+                                    <div class="article-image">
+                                        <img src="https://images.unsplash.com/photo-1716878906849-17ed9e9e6186" alt="Retirement Article">
+                                    </div>
+                                    <div class="article-content">
+                                        <h4>Retirement Planning in Your 30s</h4>
+                                        <p class="article-meta">By David Williams | July 10, 2023</p>
+                                        <p class="article-excerpt">Why starting retirement planning early can make a significant difference in your financial future.</p>
+                                        <a href="#" class="btn btn-small">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="user-experts" class="dashboard-panel">
+                            <h3>Find Financial Experts</h3>
+                            <div class="search-filter">
+                                <input type="text" placeholder="Search experts by name or specialty" id="expert-search">
+                                <select id="expert-filter">
+                                    <option value="all">All Specialties</option>
+                                    <option value="investment">Investment</option>
+                                    <option value="personal-finance">Personal Finance</option>
+                                    <option value="retirement">Retirement Planning</option>
+                                    <option value="tax">Tax Planning</option>
+                                </select>
+                            </div>
+                            <div class="experts-grid" id="experts-container">
+                                <!-- Experts will be loaded dynamically -->
+                                <div class="expert-card" data-id="1">
+                                    <div class="expert-img">
+                                        <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4" alt="Sarah Johnson">
+                                    </div>
+                                    <h4>Sarah Johnson</h4>
+                                    <p class="expert-title">Personal Finance Specialist</p>
+                                    <div class="expert-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>4.5 (28 reviews)</span>
+                                    </div>
+                                    <p class="expert-description">10+ years helping individuals build financial stability through personalized budgeting and savings strategies.</p>
+                                    <button class="btn btn-small view-profile-btn" data-id="1">View Profile</button>
+                                </div>
+                                <div class="expert-card" data-id="2">
+                                    <div class="expert-img">
+                                        <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74" alt="Michael Chen">
+                                    </div>
+                                    <h4>Michael Chen</h4>
+                                    <p class="expert-title">Investment Advisor</p>
+                                    <div class="expert-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>5.0 (42 reviews)</span>
+                                    </div>
+                                    <p class="expert-description">Certified investment advisor specializing in market analysis and portfolio management for long-term growth.</p>
+                                    <button class="btn btn-small view-profile-btn" data-id="2">View Profile</button>
+                                </div>
+                                <div class="expert-card" data-id="3">
+                                    <div class="expert-img">
+                                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="David Williams">
+                                    </div>
+                                    <h4>David Williams</h4>
+                                    <p class="expert-title">Retirement Planning Expert</p>
+                                    <div class="expert-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span>4.0 (35 reviews)</span>
+                                    </div>
+                                    <p class="expert-description">Specializes in creating comprehensive retirement plans that align with your lifestyle goals and risk tolerance.</p>
+                                    <button class="btn btn-small view-profile-btn" data-id="3">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="user-schedule-meeting" class="dashboard-panel">
+                            <h3>Schedule a Meeting with an Expert</h3>
+                            <form id="schedule-meeting-form" class="meeting-scheduler">
+                                <div class="scheduler-step">
+                                    <h4>Step 1: Select an Expert</h4>
+                                    <select id="meeting-expert-select" required>
+                                        <option value="">-- Select an Expert --</option>
+                                        <!-- Expert options will be dynamically populated -->
+                                    </select>
+                                </div>
+                                <div class="scheduler-step">
+                                    <h4>Step 2: Select Date and Time</h4>
+                                    <div class="date-time-selector">
+                                        <div class="date-selector">
+                                            <label for="meeting-date">Date:</label>
+                                            <input type="date" id="meeting-date" min="" required>
+                                        </div>
+                                        <div class="time-selector">
+                                            <label for="meeting-time">Time:</label>
+                                            <select id="meeting-time" required>
+                                                <option value="">-- Select Time --</option>
+                                                <option value="09:00">09:00 AM</option>
+                                                <option value="10:00">10:00 AM</option>
+                                                <option value="11:00">11:00 AM</option>
+                                                <option value="12:00">12:00 PM</option>
+                                                <option value="13:00">01:00 PM</option>
+                                                <option value="14:00">02:00 PM</option>
+                                                <option value="15:00">03:00 PM</option>
+                                                <option value="16:00">04:00 PM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scheduler-step">
+                                    <h4>Step 3: Meeting Details</h4>
+                                    <div class="meeting-details">
+                                        <div class="form-group">
+                                            <label for="meeting-topic">Topic:</label>
+                                            <select id="meeting-topic" required>
+                                                <option value="">-- Select Topic --</option>
+                                                <option value="budgeting">Budgeting and Savings</option>
+                                                <option value="investment">Investment Strategy</option>
+                                                <option value="retirement">Retirement Planning</option>
+                                                <option value="debt">Debt Management</option>
+                                                <option value="tax">Tax Planning</option>
+                                                <option value="other">Other (Please specify)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="other-topic-container" style="display: none;">
+                                            <label for="other-topic">Please specify:</label>
+                                            <input type="text" id="other-topic">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="meeting-notes">Additional Notes:</label>
+                                            <textarea id="meeting-notes" rows="4" placeholder="Include any specific questions or concerns you'd like to discuss"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Schedule Meeting</button>
+                            </form>
+                        </div>
+
+                        <div id="user-my-meetings" class="dashboard-panel">
+                            <h3>My Scheduled Meetings</h3>
+                            <div class="meetings-container" id="user-meetings-list">
+                                <!-- Meetings will be loaded dynamically -->
+                                <div class="empty-state hidden">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <p>You don't have any scheduled meetings yet.</p>
+                                    <button class="btn btn-small" data-target="schedule-meeting">Schedule a Meeting</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="user-messages" class="dashboard-panel">
+                            <h3>Messages</h3>
+                            <div class="messages-container">
+                                <div class="messages-sidebar">
+                                    <div class="messages-search">
+                                        <input type="text" placeholder="Search contacts...">
+                                    </div>
+                                    <div class="messages-contacts" id="user-contacts">
+                                        <!-- Contacts will be loaded dynamically -->
+                                        <div class="empty-state hidden">
+                                            <i class="fas fa-envelope"></i>
+                                            <p>No message threads yet. Schedule a meeting with an expert to start a conversation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="messages-main">
+                                    <div class="messages-header" id="message-header">
+                                        <div class="message-contact-info">
+                                            <h4>Select a contact to view messages</h4>
+                                        </div>
+                                    </div>
+                                    <div class="messages-body" id="messages-body">
+                                        <div class="empty-state">
+                                            <i class="fas fa-comments"></i>
+                                            <p>Select a contact to view your conversation</p>
+                                        </div>
+                                    </div>
+                                    <div class="messages-input" id="message-input-container">
+                                        <textarea id="message-input" placeholder="Type your message..." disabled></textarea>
+                                        <button id="send-message-btn" class="btn btn-small" disabled>
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="user-become-expert" class="dashboard-panel">
+                            <h3>Apply to Become a Financial Expert</h3>
+                            <div class="expert-application">
+                                <p class="application-intro">Share your financial expertise with our community. Complete the application below to be considered for our expert network.</p>
+                                <form id="expert-application-form">
+                                    <div class="form-group">
+                                        <label for="expert-specialty">Primary Specialty:</label>
+                                        <select id="expert-specialty" required>
+                                            <option value="">-- Select Specialty --</option>
+                                            <option value="personal-finance">Personal Finance</option>
+                                            <option value="investment">Investment Advisory</option>
+                                            <option value="retirement">Retirement Planning</option>
+                                            <option value="tax">Tax Planning</option>
+                                            <option value="estate">Estate Planning</option>
+                                            <option value="debt">Debt Management</option>
+                                            <option value="other">Other (Please specify)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" id="other-specialty-container" style="display: none;">
+                                        <label for="other-specialty">Please specify:</label>
+                                        <input type="text" id="other-specialty">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expert-experience">Years of Experience:</label>
+                                        <select id="expert-experience" required>
+                                            <option value="">-- Select Years --</option>
+                                            <option value="1-3">1-3 years</option>
+                                            <option value="4-7">4-7 years</option>
+                                            <option value="8-12">8-12 years</option>
+                                            <option value="13+">13+ years</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expert-credentials">Professional Certifications/Credentials:</label>
+                                        <input type="text" id="expert-credentials" placeholder="e.g., CFP, CFA, ChFC" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expert-bio">Professional Bio:</label>
+                                        <textarea id="expert-bio" rows="5" placeholder="Tell us about your background, expertise, and approach to financial advising" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expert-motivation">Why do you want to join our platform?</label>
+                                        <textarea id="expert-motivation" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="user-my-profile" class="dashboard-panel">
+                            <h3>My Profile</h3>
+                            <div class="profile-container">
+                                <div class="profile-header">
+                                    <div class="profile-avatar">
+                                        <i class="fas fa-user-circle fa-5x"></i>
+                                    </div>
+                                    <div class="profile-info">
+                                        <h4 id="profile-name">User Name</h4>
+                                        <p id="profile-email">user@example.com</p>
+                                        <p id="profile-join-date">Member since: June 2023</p>
+                                    </div>
+                                </div>
+                                <div class="profile-content">
+                                    <div class="profile-section">
+                                        <h4>Financial Interests</h4>
+                                        <div class="interest-tags" id="interest-tags">
+                                            <span class="interest-tag">Investing</span>
+                                            <span class="interest-tag">Retirement</span>
+                                            <span class="interest-tag">Budgeting</span>
+                                            <button id="edit-interests-btn" class="btn btn-small">Edit</button>
+                                        </div>
+                                        <div id="edit-interests-form" class="hidden">
+                                            <div class="form-group">
+                                                <label>Select your financial interests:</label>
+                                                <div class="checkbox-group">
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="interest-investing" checked>
+                                                        <label for="interest-investing">Investing</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="interest-retirement" checked>
+                                                        <label for="interest-retirement">Retirement</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="interest-budgeting" checked>
+                                                        <label for="interest-budgeting">Budgeting</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="interest-tax">
+                                                        <label for="interest-tax">Tax Planning</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="interest-debt">
+                                                        <label for="interest-debt">Debt Management</label>
+                                                    </div>
+                                                    <div class="checkbox-item">
+                                                        <input type="checkbox" id="interest-estate">
+                                                        <label for="interest-estate">Estate Planning</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions">
+                                                    <button id="save-interests-btn" class="btn btn-small">Save</button>
+                                                    <button id="cancel-interests-btn" class="btn btn-small btn-secondary">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="profile-section">
+                                        <h4>Account Information</h4>
+                                        <form id="update-profile-form">
+                                            <div class="form-group">
+                                                <label for="update-name">Full Name:</label>
+                                                <input type="text" id="update-name" value="User Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="update-email">Email:</label>
+                                                <input type="email" id="update-email" value="user@example.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="current-password">Current Password:</label>
+                                                <input type="password" id="current-password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="new-password">New Password (leave blank to keep current):</label>
+                                                <input type="password" id="new-password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="confirm-new-password">Confirm New Password:</label>
+                                                <input type="password" id="confirm-new-password">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expert-dashboard" class="section">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Expert Dashboard: <span id="expert-dashboard-name">Expert</span></h2>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-sidebar">
+                        <ul class="dashboard-menu">
+                            <li class="menu-item active" data-target="expert-articles">
+                                <i class="fas fa-newspaper"></i> My Articles
+                            </li>
+                            <li class="menu-item" data-target="create-article">
+                                <i class="fas fa-pen-fancy"></i> Create Content
+                            </li>
+                            <li class="menu-item" data-target="expert-clients">
+                                <i class="fas fa-users"></i> My Clients
+                            </li>
+                            <li class="menu-item" data-target="expert-meetings">
+                                <i class="fas fa-calendar-alt"></i> Scheduled Meetings
+                            </li>
+                            <li class="menu-item" data-target="expert-messages">
+                                <i class="fas fa-envelope"></i> Messages
+                            </li>
+                            <li class="menu-item" data-target="expert-profile">
+                                <i class="fas fa-user-circle"></i> My Profile
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dashboard-main">
+                        <div id="expert-expert-articles" class="dashboard-panel active">
+                            <h3>My Published Articles</h3>
+                            <div class="articles-container">
+                                <div class="articles-grid" id="expert-articles-list">
+                                    <!-- Expert's articles will be loaded dynamically -->
+                                    <div class="empty-state hidden">
+                                        <i class="fas fa-newspaper"></i>
+                                        <p>You haven't published any articles yet.</p>
+                                        <button class="btn btn-small" data-target="create-article">Create Your First Article</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="expert-create-article" class="dashboard-panel">
+                            <h3>Create New Content</h3>
+                            <div class="article-creator">
+                                <form id="create-article-form">
+                                    <div class="form-group">
+                                        <label for="article-title">Title:</label>
+                                        <input type="text" id="article-title" placeholder="Enter article title" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="article-category">Category:</label>
+                                        <select id="article-category" required>
+                                            <option value="">-- Select Category --</option>
+                                            <option value="budgeting">Budgeting & Savings</option>
+                                            <option value="investing">Investing</option>
+                                            <option value="retirement">Retirement Planning</option>
+                                            <option value="tax">Tax Strategies</option>
+                                            <option value="debt">Debt Management</option>
+                                            <option value="estate">Estate Planning</option>
+                                            <option value="financial-literacy">Financial Literacy</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="article-summary">Summary:</label>
+                                        <textarea id="article-summary" rows="2" placeholder="Brief summary of your article" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="article-content">Content:</label>
+                                        <div class="editor-toolbar">
+                                            <button type="button" class="toolbar-btn" data-action="bold"><i class="fas fa-bold"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="italic"><i class="fas fa-italic"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="underline"><i class="fas fa-underline"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="heading"><i class="fas fa-heading"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="list-ul"><i class="fas fa-list-ul"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="list-ol"><i class="fas fa-list-ol"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="link"><i class="fas fa-link"></i></button>
+                                            <button type="button" class="toolbar-btn" data-action="quote"><i class="fas fa-quote-right"></i></button>
+                                        </div>
+                                        <textarea id="article-content" rows="15" placeholder="Write your article content here..." required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="article-tags">Tags (separated by commas):</label>
+                                        <input type="text" id="article-tags" placeholder="e.g., investing, beginners, stocks">
+                                    </div>
+                                    <div class="article-actions">
+                                        <button type="button" id="article-preview-btn" class="btn btn-secondary">Preview</button>
+                                        <button type="button" id="article-save-draft-btn" class="btn btn-secondary">Save as Draft</button>
+                                        <button type="submit" class="btn btn-primary">Publish</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="expert-expert-clients" class="dashboard-panel">
+                            <h3>My Clients</h3>
+                            <div class="clients-container">
+                                <div class="clients-grid" id="clients-list">
+                                    <!-- Clients will be loaded dynamically -->
+                                    <div class="empty-state hidden">
+                                        <i class="fas fa-users"></i>
+                                        <p>You don't have any clients yet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="expert-expert-meetings" class="dashboard-panel">
+                            <h3>Scheduled Meetings</h3>
+                            <div class="meetings-container">
+                                <div class="meeting-filter">
+                                    <button class="filter-btn active" data-filter="upcoming">Upcoming</button>
+                                    <button class="filter-btn" data-filter="past">Past</button>
+                                </div>
+                                <div class="meetings-list" id="expert-meetings-list">
+                                    <!-- Meetings will be loaded dynamically -->
+                                    <div class="empty-state hidden">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <p>You don't have any scheduled meetings yet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="expert-expert-messages" class="dashboard-panel">
+                            <h3>Messages</h3>
+                            <div class="messages-container">
+                                <div class="messages-sidebar">
+                                    <div class="messages-search">
+                                        <input type="text" placeholder="Search contacts...">
+                                    </div>
+                                    <div class="messages-contacts" id="expert-contacts">
+                                        <!-- Contacts will be loaded dynamically -->
+                                        <div class="empty-state hidden">
+                                            <i class="fas fa-envelope"></i>
+                                            <p>No message threads yet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="messages-main">
+                                    <div class="messages-header" id="expert-message-header">
+                                        <div class="message-contact-info">
+                                            <h4>Select a contact to view messages</h4>
+                                        </div>
+                                    </div>
+                                    <div class="messages-body" id="expert-messages-body">
+                                        <div class="empty-state">
+                                            <i class="fas fa-comments"></i>
+                                            <p>Select a contact to view your conversation</p>
+                                        </div>
+                                    </div>
+                                    <div class="messages-input" id="expert-message-input-container">
+                                        <textarea id="expert-message-input" placeholder="Type your message..." disabled></textarea>
+                                        <button id="expert-send-message-btn" class="btn btn-small" disabled>
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="expert-expert-profile" class="dashboard-panel">
+                            <h3>My Expert Profile</h3>
+                            <div class="profile-container">
+                                <div class="profile-header">
+                                    <div class="profile-avatar">
+                                        <i class="fas fa-user-tie fa-5x"></i>
+                                    </div>
+                                    <div class="profile-info">
+                                        <h4 id="expert-profile-name">Expert Name</h4>
+                                        <p id="expert-profile-title">Financial Advisor</p>
+                                        <p id="expert-profile-email">expert@example.com</p>
+                                        <div class="expert-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span id="expert-rating-value">4.5</span>
+                                            <span id="expert-review-count">(28 reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile-content">
+                                    <div class="profile-section">
+                                        <h4>Professional Information</h4>
+                                        <form id="update-expert-profile-form">
+                                            <div class="form-group">
+                                                <label for="expert-update-name">Full Name:</label>
+                                                <input type="text" id="expert-update-name" value="Expert Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-update-title">Professional Title:</label>
+                                                <input type="text" id="expert-update-title" value="Financial Advisor">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-update-email">Email:</label>
+                                                <input type="email" id="expert-update-email" value="expert@example.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-update-specialty">Primary Specialty:</label>
+                                                <select id="expert-update-specialty">
+                                                    <option value="personal-finance">Personal Finance</option>
+                                                    <option value="investment">Investment Advisory</option>
+                                                    <option value="retirement">Retirement Planning</option>
+                                                    <option value="tax">Tax Planning</option>
+                                                    <option value="estate">Estate Planning</option>
+                                                    <option value="debt">Debt Management</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-update-bio">Professional Bio:</label>
+                                                <textarea id="expert-update-bio" rows="5">Experienced financial advisor with expertise in personalized investment strategies and retirement planning. My mission is to help clients achieve financial freedom through education and strategic planning.</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-update-credentials">Credentials:</label>
+                                                <input type="text" id="expert-update-credentials" value="CFP, CFA">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-update-experience">Years of Experience:</label>
+                                                <select id="expert-update-experience">
+                                                    <option value="1-3">1-3 years</option>
+                                                    <option value="4-7">4-7 years</option>
+                                                    <option value="8-12" selected>8-12 years</option>
+                                                    <option value="13+">13+ years</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                                        </form>
+                                    </div>
+                                    <div class="profile-section">
+                                        <h4>Account Security</h4>
+                                        <form id="update-expert-password-form">
+                                            <div class="form-group">
+                                                <label for="expert-current-password">Current Password:</label>
+                                                <input type="password" id="expert-current-password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-new-password">New Password:</label>
+                                                <input type="password" id="expert-new-password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="expert-confirm-new-password">Confirm New Password:</label>
+                                                <input type="password" id="expert-confirm-new-password">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Password</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expert-profile" class="section">
+            <div class="container">
+                <div class="expert-profile-container">
+                    <div class="expert-profile-header">
+                        <div class="back-button">
+                            <button id="back-to-experts" class="btn btn-small">
+                                <i class="fas fa-arrow-left"></i> Back to Experts
+                            </button>
+                        </div>
+                        <div class="expert-profile-main">
+                            <div class="expert-avatar">
+                                <img id="expert-view-img" src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4" alt="Expert Avatar">
+                            </div>
+                            <div class="expert-info">
+                                <h2 id="expert-view-name">Sarah Johnson</h2>
+                                <p id="expert-view-title" class="expert-title">Personal Finance Specialist</p>
+                                <div class="expert-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span id="expert-view-rating">4.5</span>
+                                    <span id="expert-view-reviews">(28 reviews)</span>
+                                </div>
+                                <div class="expert-credentials">
+                                    <p id="expert-view-credentials"><strong>Credentials:</strong> CFP, CFA</p>
+                                    <p id="expert-view-experience"><strong>Experience:</strong> 10+ years</p>
+                                </div>
+                                <div class="expert-actions">
+                                    <button id="schedule-with-expert" class="btn btn-primary">Schedule a Meeting</button>
+                                    <button id="message-expert" class="btn btn-secondary">Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expert-profile-body">
+                        <div class="expert-about">
+                            <h3>About</h3>
+                            <p id="expert-view-bio">I am a Certified Financial Planner with over 10 years of experience helping individuals and families achieve their financial goals. My approach focuses on creating personalized strategies that align with each client's unique situation and aspirations. I specialize in budgeting, debt management, and creating sustainable savings plans that help build financial stability.</p>
+                        </div>
+                        <div class="expert-specialties">
+                            <h3>Areas of Expertise</h3>
+                            <div class="specialty-tags" id="expert-view-specialties">
+                                <span class="specialty-tag">Personal Finance</span>
+                                <span class="specialty-tag">Budgeting</span>
+                                <span class="specialty-tag">Debt Management</span>
+                                <span class="specialty-tag">Financial Education</span>
+                            </div>
+                        </div>
+                        <div class="expert-articles">
+                            <h3>Recent Articles</h3>
+                            <div class="expert-articles-list" id="expert-view-articles">
+                                <div class="article-card">
+                                    <h4>5 Budgeting Strategies for Beginners</h4>
+                                    <p class="article-date">June 15, 2023</p>
+                                    <p class="article-excerpt">Learn how to create and stick to a budget that works for your financial goals and lifestyle.</p>
+                                    <a href="#" class="btn btn-small">Read More</a>
+                                </div>
+                                <div class="article-card">
+                                    <h4>Debt Payoff Strategies That Actually Work</h4>
+                                    <p class="article-date">May 22, 2023</p>
+                                    <p class="article-excerpt">Discover effective approaches to eliminate debt while still building financial security.</p>
+                                    <a href="#" class="btn btn-small">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="expert-reviews">
+                            <h3>Client Reviews</h3>
+                            <div class="reviews-list" id="expert-view-reviews">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-name">John D.</div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="review-date">April 10, 2023</p>
+                                    <p class="review-text">Sarah provided excellent guidance on creating a budget that actually works for my lifestyle. Her strategies were practical and easy to implement.</p>
+                                </div>
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer-name">Maria L.</div>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <p class="review-date">March 5, 2023</p>
+                                    <p class="review-text">I was struggling with credit card debt for years. Sarah helped me create a realistic plan to pay it off while still building my emergency fund. Highly recommend!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-content">
+                    <h2>About FinWise</h2>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p>FinWise was founded with a simple mission: to make financial literacy and expert guidance accessible to everyone. We believe that proper financial education should not be a privilege but a right for all individuals.</p>
+                            <p>In today's digital era, many individuals, especially students and early professionals, lack proper knowledge and guidance regarding managing personal finances and investments. With an overwhelming amount of information online, it's hard to know what advice to trust.</p>
+                            <p>Our platform connects users with verified financial experts who have demonstrated expertise in various aspects of financial planning and investment guidance. Every expert on our platform goes through a rigorous verification process to ensure they have the necessary credentials and experience.</p>
+                            <h3>Our Vision</h3>
+                            <p>To create a world where everyone has the knowledge and resources to make informed financial decisions, regardless of their background or starting point.</p>
+                            <h3>Our Values</h3>
+                            <ul>
+                                <li><strong>Accessibility:</strong> Making quality financial education available to everyone</li>
+                                <li><strong>Integrity:</strong> Providing honest, unbiased guidance</li>
+                                <li><strong>Empowerment:</strong> Giving people the tools to take control of their financial future</li>
+                                <li><strong>Education:</strong> Continuous learning and sharing of knowledge</li>
+                            </ul>
+                        </div>
+                        <div class="about-images">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Financial planning">
+                            <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6" alt="Financial education">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <div class="services-content">
+                    <h2>Our Services</h2>
+                    <div class="services-overview">
+                        <p>FinWise provides a comprehensive suite of resources to help individuals at all stages of their financial journey. Whether you're just starting to build financial literacy or looking for advanced investment strategies, our platform offers tools and expertise to guide you.</p>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <h3>Educational Content</h3>
+                            <ul>
+                                <li>Regularly updated articles and guides</li>
+                                <li>Content authored by verified financial experts</li>
+                                <li>Topics covering budgeting, savings, investing, credit scores, and more</li>
+                                <li>Tailored resources for different knowledge levels</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>Expert Consultation</h3>
+                            <ul>
+                                <li>One-on-one sessions with financial professionals</li>
+                                <li>Personalized advice for your specific situation</li>
+                                <li>Flexible scheduling options</li>
+                                <li>Access to specialists in various financial domains</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Interactive Communication</h3>
+                            <ul>
+                                <li>Messaging system to communicate with experts</li>
+                                <li>24/7 chatbot for quick financial queries</li>
+                                <li>Follow-up support after consultations</li>
+                                <li>Secure and private communication channels</li>
+                            </ul>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Verified Expert Network</h3>
+                            <ul>
+                                <li>Thoroughly vetted financial professionals</li>
+                                <li>Verification of credentials and experience</li>
+                                <li>Transparent expert profiles with client reviews</li>
+                                <li>Diverse specialties to address various financial needs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="help" class="section">
+            <div class="container">
+                <div class="help-content">
+                    <h2>Help Center</h2>
+                    <div class="help-overview">
+                        <p>Find answers to common questions about our platform, services, and how to make the most of FinWise.</p>
+                    </div>
+                    <div class="help-search">
+                        <input type="text" id="help-search-input" placeholder="Search for help topics...">
+                        <button id="help-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="faq-container">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="accordion" id="faq-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h4>How do I schedule a meeting with a financial expert?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>To schedule a meeting with an expert, log in to your account and navigate to the "Explore Experts" section in your dashboard. Browse through available experts, view their profiles, and click on "Schedule a Meeting" with your preferred expert. Select a convenient date and time, specify the topic you'd like to discuss, and provide any additional details to help the expert prepare for your session.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h4>How are financial experts verified on FinWise?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>We have a rigorous verification process for all experts on our platform. Each expert must provide proof of their credentials, professional certifications, and years of experience in the financial industry. We verify their professional background, check references, and ensure they have the necessary expertise in their claimed specialties. Only after thorough vetting do we approve experts to offer services on our platform.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h4>Is my financial information secure on this platform?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>Yes, we take data security very seriously. All communications between you and financial experts are encrypted and confidential. We never share your personal or financial information with third parties without your explicit consent. Our platform uses industry-standard security protocols to protect your data, and we regularly update our security measures to maintain the highest level of protection.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h4>How can I become a financial expert on FinWise?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>If you're a qualified financial professional interested in joining our expert network, you can apply through your user account. Go to your dashboard and select "Become an Expert." You'll need to provide details about your credentials, experience, specialties, and professional background. Our team will review your application, verify your information, and contact you regarding the next steps. We look for experts with proven expertise and a commitment to providing quality financial guidance.</p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <h4>What types of financial topics can I get help with?</h4>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <p>FinWise covers a wide range of financial topics including but not limited to: budgeting and saving, debt management, investment strategies, retirement planning, tax optimization, estate planning, insurance needs, credit improvement, and general financial literacy. Our diverse expert network includes specialists in various areas, so you can find guidance tailored to your specific financial needs and goals.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="help-categories">
+                        <h3>Help Categories</h3>
+                        <div class="categories-grid">
+                            <div class="category-card">
+                                <i class="fas fa-user"></i>
+                                <h4>Account Management</h4>
+                                <a href="#" class="btn btn-small">View Articles</a>
+                            </div>
+                            <div class="category-card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h4>Meetings & Scheduling</h4>
+                                <a href="#" class="btn btn-small">View Articles</a>
+                            </div>
+                            <div class="category-card">
+                                <i class="fas fa-credit-card"></i>
+                                <h4>Billing & Payments</h4>
+                                <a href="#" class="btn btn-small">View Articles</a>
+                            </div>
+                            <div class="category-card">
+                                <i class="fas fa-user-tie"></i>
+                                <h4>Expert Verification</h4>
+                                <a href="#" class="btn btn-small">View Articles</a>
+                            </div>
+                            <div class="category-card">
+                                <i class="fas fa-lock"></i>
+                                <h4>Privacy & Security</h4>
+                                <a href="#" class="btn btn-small">View Articles</a>
+                            </div>
+                            <div class="category-card">
+                                <i class="fas fa-question-circle"></i>
+                                <h4>General Questions</h4>
+                                <a href="#" class="btn btn-small">View Articles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-support">
+                        <h3>Still Need Help?</h3>
+                        <p>If you couldn't find the answer to your question, our support team is here to help.</p>
+                        <button class="btn btn-primary">Contact Support</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="my-profile" class="section">
+            <!-- This section will be dynamically updated based on whether the user is regular or expert -->
+        </section>
+    </main>
+
+    <div id="chatbot-widget" class="chatbot-widget">
+        <div class="chatbot-toggle">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chatbot-container" style="display: none;">
+            <div class="chatbot-header">
+                <h3>FinWise Assistant</h3>
+                <div class="chatbot-controls">
+                    <i class="fas fa-minus minimize-chat"></i>
+                    <i class="fas fa-times close-chat"></i>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! I'm your FinWise assistant. How can I help you with your financial questions today?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your question here...">
+                <button id="send-chatbot-msg">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3><span class="primary-color">Fin</span>Wise</h3>
+                    <p>Your trusted source for financial literacy and investment guidance.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#help">Help Center</a></li>
+                        <li id="footer-login-btn"><a href="#login">Login</a></li>
+                        <li id="footer-register-btn"><a href="#register">Register</a></li>
+                        <li id="footer-dashboard-btn" class="hidden"><a href="#dashboard-link">Dashboard</a></li>
+                        <li id="footer-profile-btn" class="hidden"><a href="#my-profile">My Profile</a></li>
+                        <li id="footer-logout-btn" class="hidden"><a href="#" class="footer-logout">Sign Out</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Financial Education Blog</a></li>
+                        <li><a href="#">Investment Calculators</a></li>
+                        <li><a href="#">Retirement Planning Tools</a></li>
+                        <li><a href="#">Savings Strategies</a></li>
+                        <li><a href="#">Debt Management Guides</a></li>
+                        <li><a href="#">Market Updates & Analysis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Connect with an Expert</h4>
+                    <p>Get personalized financial guidance from our verified experts.</p>
+                    <button class="btn btn-primary" id="footer-connect-btn">Find an Expert</button>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@finwise.com</p>
+                        <p><i class="fas fa-phone"></i> (800) 555-1234</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Financial Dr, New York, NY</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 FinWise. All rights reserved.</p>
+                </div>
+                <div class="terms">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Toggle Button -->
+    <div class="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+    </div>
+    
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" style="display: none;">
+        <div class="chatbot-header">
+            <h3>FinWise Assistant</h3>
+            <div class="chatbot-controls">
+                <button class="minimize-chat"><i class="fas fa-minus"></i></button>
+                <button class="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="chatbot-body">
+            <div id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! I'm your FinWise assistant. How can I help you with your financial questions today?</p>
+                        <div class="message-time">Now</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <textarea id="chatbot-input" placeholder="Type your question here..."></textarea>
+            <button id="send-chatbot-msg"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/articles.js"></script>
+    <script src="js/experts.js"></script>
+    <script src="js/meetings.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/help.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+I wanto build a website on the problem statement "
+FINANCIAL LITERACY AND INVESTMENT GUIDANCE :
+In today's digital era, many individuals, especially students and early professionals, lack proper knowledge and guidance regarding managing personal finances and investments. With an overwhelming amount of information online, it's hard to know what advice to trust. Moreover, people struggle to choose the right investment options based on their goals, risk levels, and financial literacy."
+
+The features of website include
+Landing page displaying login and register options
+Login/Register Page
+after login/register user dashboard should have options like go to articles/ schedule a meeting with expert, explore verified experts, want to become an expert whereas expert dashboard should have write an article, check clients who scheduled meeting with u and message system for interaction with them(message system also for users)
+general section has
+Educational Content:
+Regularly updated blogs and articles authored by verified financial experts.
+Content covering diverse topics such as budgeting, savings, investing, credit scores, and more.
+Expert Profiles and Verification:
+Detailed profiles of well-established financial professionals.
+User Interaction & Engagement:
+Scheduling system for users to book consultations with experts.
+Real-time chatroom and video call functionality for personalized guidance.
+Chatbot Integration using chatbox api:
+Capability to integrate AI chatbots for instant financial queries.
+Expansion to support financial planning tools, user forums, and community features.
+
+Tech Stack: Use only HTML,CSS and JavaScript for frontend and nothing else
+after logging in dashboard should display user/expert profile with their name and sign out option
+use only html,css and javascript nothing else
+
+include chatbot with just chatbox api, no other advance features and use only html,css and Javascript no other languages for the website
+
+Color Theme: Light BackGround , White, #ff6600, #ff9933, #ffcc66 #ffff99
